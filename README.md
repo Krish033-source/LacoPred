@@ -3,11 +3,11 @@
 A Machine Learning model** that predicts land prices in **different regions of India (North, South, East, West) based on land area using Linear Regression.
 
 Features:
-✅ **User Input:** Enter **Region & Land Area** to get the predicted price.  
-✅ **ML-Powered:** Uses **Linear Regression** to analyze and predict prices.  
-✅ **One-Hot Encoding:** Converts categorical region data into ML-compatible format.  
-✅ **CSV-Based Training:** Trained on sample land price data from different regions.  
-✅ **Scalable:** Can be expanded with more real-time data for better accuracy.  
+✅ User Input: Enter Region & Land Area to get the predicted price.  
+✅ ML-Powered: Uses Linear Regression to analyze and predict prices.  
+✅ One-Hot Encoding: Converts categorical region data into ML-compatible format.  
+✅ CSV-Based Training: Trained on sample land price data from different regions.  
+✅ Scalable: Can be expanded with more real-time data for better accuracy.  
 
 Technologies Used:
 -Python
