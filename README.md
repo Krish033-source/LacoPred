@@ -20,5 +20,7 @@ Files in the Repository:
 land_price_data.csv: Sample dataset with land prices for different regions.  
 Landcostpred.py: ML script to train the model and predict land prices.  
 
-Licanse:
+License:
 This project is **open-source** under the **MIT License**. Feel free to use, modify, and contribute! 
+
+🏆 This repository is part of the Open Source 101 organised by ISTE HIT SC
