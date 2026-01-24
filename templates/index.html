@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LacoPred | AI Land Advisor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <button class="history-btn" onclick="toggleHistory()">History</button>
+    <h1>LacoPred</h1>
+    <p>Smart land pricing & AI-based investment guidance</p>
+
+    <a class="github-link"
+       href="https://github.com/Krish033-source/LacoPred"
+       target="_blank">
+        View on GitHub
+    </a>
+</header>
+
+<!-- HISTORY BUTTON -->
+<button class="history-btn" onclick="toggleHistory()">History</button>
+
+<div class="content-wrapper">
+
+    <div class="cards-container">
+
+        <!-- LAND PRICE PREDICTOR -->
+        <div class="card">
+            <h2>📍 Land Price Predictor</h2>
+
+            <form method="POST" onsubmit="showLoading(this)">
+                <input type="hidden" name="form_type" value="predictor">
+
+                <label>Region</label>
+                <select name="region" required>
+                    <option>North</option>
+                    <option>South</option>
+                    <option>East</option>
+                    <option>West</option>
+                </select>
+
+                <label>Land Area (sq ft)</label>
+                <input type="number" name="area" placeholder="e.g. 1200 – 3000" required>
+
+                <button type="submit">Predict</button>
+            </form>
+
+            {% if predictor.price %}
+                <div class="result">₹{{ predictor.price }}</div>
+
+                <div class="insight-box">
+                    <strong>AI Insight</strong><br><br>
+                    {{ predictor.insight }}<br><br>
+                    <strong>Forecast:</strong> {{ predictor.hike }}
+                </div>
+
+                <img src="{{ predictor.graph }}" class="graph">
+            {% endif %}
+        </div>
+
+        <!-- AI BUDGET ADVISOR -->
+        <div class="card">
+            <h2>💡 AI Budget Advisor</h2>
+
+            <form method="POST" onsubmit="showLoading(this)">
+                <input type="hidden" name="form_type" value="advisor">
+
+                <label>Budget</label>
+                <input type="range"
+                       name="budget"
+                       min="1000000"
+                       max="200000000"
+                       step="500000"
+                       value="1000000"
+                       class="budget-slider"
+                       oninput="updateBudgetLabel(this.value)">
+
+                <div class="budget-label">
+                    Selected: <span id="budgetLabel">₹10 Lakhs</span>
+                </div>
+
+                <button type="submit">Recommend</button>
+            </form>
+
+            {% if advisor.recommendation %}
+                <div class="insight-box">
+                    <strong>Best Region:</strong> {{ advisor.recommendation.region }}<br><br>
+                    <strong>Ideal Plot Area:</strong> {{ advisor.recommendation.area }}
+                </div>
+
+
+                <div class="why-box" >
+                    <strong>Why this recommendation?</strong><br><br>
+                    {{ advisor.recommendation.reason }}<br><br>
+                    <strong>Comparison:</strong><br>
+                    {{ advisor.recommendation.compare }}
+                </div>
+
+                <img src="{{ advisor.graph }}" class="graph">
+            {% endif %}
+        </div>
+
+    </div>
+
+    <!-- RESET -->
+    <form method="POST" class="reset-holder">
+        <input type="hidden" name="form_type" value="reset">
+        <button type="submit" class="reset-btn">↻</button>
+    </form>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-it-works">
+        <div>
+            📊<br>
+            <strong>Data</strong><br>
+            Historical land prices
+        </div>
+        <div>
+            🤖<br>
+            <strong>AI Model</strong><br>
+            ML + trend analysis
+        </div>
+        <div>
+            📈<br>
+            <strong>Insights</strong><br>
+            Price & investment guidance
+        </div>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer">
+        Predictions are indicative and for educational purposes only.
+    </div>
+
+</div>
+
+<!-- PROPERTY LINKS -->
+<div class="property-links">
+    <a href="https://www.99acres.com" target="_blank">99acres</a>
+    <a href="https://www.magicbricks.com" target="_blank">Magicbricks</a>
+    <a href="https://housing.com" target="_blank">Housing.com</a>
+    <a href="https://www.nobroker.in" target="_blank">NoBroker</a>
+</div>
+
+<!-- EDUCATIONAL NOTE (SCROLL END) -->
+<div class="edu-note">
+    Educational AI tool based on historical data & trend analysis
+</div>
+
+<!-- HISTORY PANEL -->
+<div class="history-panel" id="historyPanel">
+    <h3>History</h3>
+    {% if predictor_history %}
+        <h4>Land Price Predictions</h4>
+        {% for item in predictor_history %}
+            <div class="history-item">
+                <strong>Region:</strong> {{ item.region }}<br>
+                <strong>Area:</strong> {{ item.area }} sq ft<br>
+                <strong>Price:</strong> ₹{{ item.price }}<br>
+                <strong>Insight:</strong> {{ item.insight }}<br>
+                <strong>Hike:</strong> {{ item.hike }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if advisor_history %}
+        <h4>AI Budget Recommendations</h4>
+        {% for item in advisor_history %}
+            <div class="history-item">
+                <strong>Budget:</strong> ₹{{ item.budget }}<br>
+                <strong>Region:</strong> {{ item.recommendation.region }}<br>
+                <strong>Area:</strong> {{ item.recommendation.area }}<br>
+                <strong>Reason:</strong> {{ item.recommendation.reason }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if not predictor_history and not advisor_history %}
+        <p>No history available yet.</p>
+    {% endif %}
+</div>
+
+<script>
+function updateBudgetLabel(value) {
+    let amount = parseInt(value);
+    let label = amount < 10000000
+        ? "₹" + (amount / 100000).toFixed(0) + " Lakhs"
+        : "₹" + (amount / 10000000).toFixed(2) + " Crore";
+    document.getElementById("budgetLabel").innerText = label;
+}
+
+function toggleHistory() {
+    document.getElementById("historyPanel").classList.toggle("show");
+}
+
+function toggleWhy() {
+    document.getElementById("whyBox").classList.toggle("show");
+}
+
+function showLoading(form) {
+    const btn = form.querySelector("button");
+    btn.innerText = "Calculating…";
+    btn.disabled = true;
+}
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,249 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94)),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    font-size: 17px;
+}
+
+/* HEADER */
+header {
+    background: transparent;
+    color: #0b3c5d;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    font-size: 34px;
+    margin: 0;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+header p {
+    font-size: 18px;
+    margin-top: 6px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* GITHUB LINK */
+.github-link {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 14px;
+    color: #0b3c5d;
+    text-decoration: underline;
+}
+
+/* HISTORY BUTTON */
+.history-btn {
+    position: fixed;
+    top: 110px;
+    right: 28px;
+    background: #7cc7ff;
+    color: #0b3c5d;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 50;
+    width: auto;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.history-btn:hover {
+    background: #5bb6f5;
+}
+
+/* MAIN CONTENT */
+.content-wrapper {
+    padding: 50px 60px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    padding: 32px;
+    width: 440px;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.card h2 {
+    font-size: 24px;
+    color: #1e3c72;
+}
+
+/* INPUTS */
+label {
+    margin-top: 16px;
+    display: block;
+    font-weight: 600;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 18px;
+    width: 100%;
+    padding: 12px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* SLIDER */
+.budget-slider {
+    height: 9px;
+}
+
+/* RESULT */
+.result {
+    margin-top: 16px;
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+}
+
+.insight-box {
+    margin-top: 16px;
+    background: #eef3ff;
+    padding: 16px;
+    border-left: 5px solid #1e3c72;
+}
+
+.graph {
+    width: 100%;
+    margin-top: 18px;
+}
+
+/* WHY */
+.why-btn {
+    background: none;
+    border: none;
+    color: #1e3c72;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.why-box {
+    font-size: 15px;
+    background: #eef3ff;
+    padding: 14px;
+    margin-top: 10px;
+    border-left: 4px solid #1e3c72;
+}
+
+
+/* RESET */
+.reset-holder {
+    text-align: center;
+    margin-top: 22px;
+}
+
+.reset-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+    border-radius: 10px;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+}
+
+/* HOW IT WORKS */
+.how-it-works {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin: 60px 0 30px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.how-it-works div {
+    max-width: 160px;
+}
+
+/* DISCLAIMER */
+.disclaimer {
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* PROPERTY LINKS */
+.property-links {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    display: flex;
+    gap: 16px;
+}
+
+.property-links a {
+    text-decoration: none;
+    color: #1e3c72;
+    font-weight: 600;
+}
+
+/* EDUCATIONAL NOTE */
+.edu-note {
+    text-align: center;
+    font-size: 14px;
+    color: #444;
+    margin: 40px 0 20px;
+}
+
+/* HISTORY PANEL */
+.history-panel {
+    position: fixed;
+    top: 160px;
+    right: 28px;
+    width: 260px;
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 40;
+}
+
+.history-panel.show {
+    display: block;
+}
+
+.history-item {
+    margin-bottom: 10px;
+    padding: 8px;
+    background: #f9f9f9;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
