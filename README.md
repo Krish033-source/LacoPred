@@ -1,24 +1,33 @@
-# AI-Powered Land Price Predictor 
+ # LacoPred – AI Powered Land Price Predictor
 
-A Machine Learning model** that predicts land prices in **different regions of India (North, South, East, West) based on land area using Linear Regression.
+LacoPred is a full-stack machine learning web application that predicts land prices
+and provides AI-style insights based on historical trends.
 
-Features:
-✅ User Input: Enter Region & Land Area to get the predicted price.  
-✅ ML-Powered: Uses Linear Regression to analyze and predict prices.  
-✅ One-Hot Encoding: Converts categorical region data into ML-compatible format.  
-✅ CSV-Based Training: Trained on sample land price data from different regions.  
-✅ Scalable: Can be expanded with more real-time data for better accuracy.  
+## Features
+- Land price prediction using Linear Regression
+- Region-wise AI insights
+- Price hike forecasting
+- Last 5 years price trend visualization
+- Professional web interface
 
-Technologies Used:
--Python
--Pandas (for data manipulation)
--NumPy (for numerical computations)
--Scikit-learn (for ML modeling)
--Matplotlib & Seaborn (for data visualization)
+## Tech Stack
+- Python, Flask
+- Pandas, Scikit-Learn
+- Matplotlib
+- HTML, CSS
 
-Files in the Repository:  
-land_price_data.csv: Sample dataset with land prices for different regions.  
-Landcostpred.py: ML script to train the model and predict land prices.  
+## How to Run
+1. Install dependencies:
+   pip install -r requirements.txt
+2. Run the app:
+   python app.py
+3. Open browser:
+   http://127.0.0.1:5000/
+
+## Disclaimer
+Insights are generated using historical data and trend analysis,
+not real-time market data.
+
 
 License:
 This project is **open-source** under the **MIT License**. Feel free to use, modify, and contribute! 
